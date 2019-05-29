@@ -4,6 +4,8 @@ const Snoostorm = require('snoostorm');
 const Snoowrap = require('snoowrap');
 const randomFuckingQuote = require('./corpus');
 
+const debug = process.env.DEBUG === 'true';
+
 // Build Snoowrap and Snoostorm clients
 const r = new Snoowrap({
     userAgent: 'node-snoowrap, like Gecko',
@@ -12,7 +14,7 @@ const r = new Snoowrap({
     username: process.env.REDDIT_USERNAME,
     password: process.env.REDDIT_PASSWORD
 });
-const comments = new Snoostorm.CommentStream(r, { subreddit:"TheExpanse+beltalowda" });
+const comments = new Snoostorm.CommentStream(r, { subreddit: process.env.SUBREDDIT });
 
 const cooldown = 60*60*1000; // 60 minute cooldown to appease the mods (hopefully)
 const initTime = Date.now();
@@ -27,7 +29,9 @@ const predicates = [
 
 const checkPredicates = (opts) => {
     results = predicates.map((predicate)=>predicate(opts));
-    console.log(results);
+    if(debug){
+        console.log(results);
+    }
     return results.every((result)=>result);
 }
 
@@ -40,8 +44,12 @@ comments.on('item', (comment)=>{
     
     if(checkPredicates(predicateOpts)){
         lastPosted = Date.now();
-        console.log('passed all predicates')
-        console.log('Chrissie found');
+        if (debug){
+            console.log('passed all predicates')
+            console.log('Chrissie found');
+        }
         comment.reply(`${randomFuckingQuote()}\n\n^(I'm a bot with a 1 hour cooldown, please don't push me out an airlock mods [github](https://github.com/jetbooster/chrissie-bot) | contact: [jetbooster](https://reddit.com/u/jetbooster))`)
     }
 })
+
+console.log(`Initialised. Listening on ${process.env.SUBREDDIT}`)
