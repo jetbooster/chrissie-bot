@@ -48,7 +48,9 @@ comments.on('item', (comment)=>{
             console.log('passed all predicates')
         }
         console.log(`Chrissie found: ${comment.body}`);
-        comment.reply(`${randomFuckingQuote()}\n\n^(I'm a bot with a 1 hour cooldown, please don't push me out an airlock mods [github](https://github.com/jetbooster/chrissie-bot) | contact: [jetbooster](https://reddit.com/u/jetbooster))`)
+	const motherfuckingQuote = randomFuckingQuote();
+	console.log(`Responding with: ${motherfuckingQuote}`);
+        comment.reply(`${motherfuckingQuote}\n\n^(I'm a bot with a 1 hour cooldown, please don't push me out an airlock mods [github](https://github.com/jetbooster/chrissie-bot) | contact: [jetbooster](https://reddit.com/u/jetbooster))`)
     }
 })
 
