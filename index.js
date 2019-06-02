@@ -36,7 +36,8 @@ const chrissieBot = AutoSnoo.create({
       function: async (comment) => {
         const commentChain = await AutoSnoo.getCommentChain(comment);
         const praise = await commentChain.reduce(
-          (praiseCount, basicComment) => (basicComment.body.includes('good bot') ? praiseCount + 1 : praiseCount), 0,
+          // eslint-disable-next-line max-len
+          (praiseCount, basicComment) => (basicComment.body.toLowerCase().includes('good bot') ? praiseCount + 1 : praiseCount), 0,
         );
         const index = Math.min(praise - 1, snarkyGifs.length - 1);
         return snarkyGifs[index];
@@ -50,6 +51,8 @@ const chrissieBot = AutoSnoo.create({
             // commentParent will be false if top level comment
             return false;
           }
+          const parentAuthor = await commentParent.author.name;
+          console.log(parentAuthor);
           return (await commentParent.author.name) === 'chrissie-bot';
         },
       ],
