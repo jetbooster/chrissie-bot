@@ -15,7 +15,8 @@ comments.on('item', async (comment) => {
   };
 
   // Should I respond with a quote?
-  if (await checkPredicates(predicateOpts, regularPredicates).passes) {
+  const shouldRegularReply = await checkPredicates(predicateOpts, regularPredicates);
+  if (await shouldRegularReply.passes) {
     try {
       regularQuotePost(comment, debug);
       lastPosted = Date.now();
@@ -26,7 +27,8 @@ comments.on('item', async (comment) => {
   }
 
   // Should I snarkily accept headpats?
-  if (await checkPredicates(predicateOpts, praisePredicates).passes) {
+  const shouldPraiseReply = await checkPredicates(predicateOpts, praisePredicates);
+  if (shouldPraiseReply.passes) {
     praiseResponsePost(redditClient, comment, debug);
   }
 });
