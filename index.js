@@ -22,8 +22,6 @@ const chrissieBot = AutoSnoo.create({
     quote: {
       responseType: 'random',
       corpus,
-      // eslint-disable-next-line max-len
-      footer: "\n\n^(I'm a bot with a 10 minute cooldown, please don't push me out an airlock mods [github](https://github.com/jetbooster/chrissie-bot) | contact: [jetbooster](https://reddit.com/u/jetbooster))",
       triggerPhrase: [
         'chrissie',
         'chrissy',
