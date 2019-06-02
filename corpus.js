@@ -45,9 +45,4 @@ const fuckingCorpus = [
   "Call me that again and I'll have an officer beat you gently with a cattle prod.", // This deserves extra weight
 ];
 
-const bloodyRandomiser = () => {
-  const goddamnIndex = Math.floor(fuckingCorpus.length * Math.random());
-  return fuckingCorpus[goddamnIndex];
-};
-
-module.exports = bloodyRandomiser;
+module.exports = fuckingCorpus;
