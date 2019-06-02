@@ -12,7 +12,7 @@ const redditClient = new Snoowrap({
 });
 
 const debug = process.env.DEBUG === 'true';
-const cooldown = 60 * 60 * 1000; // 60 minute cooldown to appease the mods (hopefully)
+const cooldown = 60 * 10 * 1000; // 10 minute cooldown to appease the mods (hopefully)
 const initTime = Date.now();
 
 module.exports = {

@@ -62,7 +62,7 @@ const regularQuotePost = async (comment) => {
   const motherfuckingQuote = randomFuckingQuote();
   console.log(`Responding with: ${motherfuckingQuote}`);
   // eslint-disable-next-line max-len
-  const footer = "^(I'm a bot with a 1 hour cooldown, please don't push me out an airlock mods [github](https://github.com/jetbooster/chrissie-bot) | contact: [jetbooster](https://reddit.com/u/jetbooster))";
+  const footer = "^(I'm a bot with a 10 minute cooldown, please don't push me out an airlock mods [github](https://github.com/jetbooster/chrissie-bot) | contact: [jetbooster](https://reddit.com/u/jetbooster))";
   comment.reply(`${motherfuckingQuote}\n\n${footer}`);
 };
 
