@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "heartbeat": "node heartbeat.js",
+    "start": "./start.sh",
+    "stop": "./stop.sh",
     "test": "jest --coverage"
   },
   "keywords": [],

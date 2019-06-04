@@ -1,5 +1,6 @@
 .env
 nohup.out
+current.pid
 node_modules
 npm-debug.log
 coverage
