@@ -1,4 +1,4 @@
-if ( !process.argv[2] || process.argv[2] !== "--started-correctly" ){
+if (!process.argv[2] || process.argv[2] !== '--started-correctly') {
   console.log("Use ./start.sh or 'npm start' to start the bot, otherwise old instances of the bot can linger");
   process.exit(1);
 }
